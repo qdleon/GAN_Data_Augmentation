@@ -11,7 +11,7 @@ image_size = 64
 batch_size = 128
 lr = 0.0002
 beta1 = 0.5
-num_epochs = 2200
+num_epochs = 1000
 latent_dim = 100
 channels = 1
 label_real = 0.9  
@@ -31,7 +31,7 @@ class ImageDataset(Dataset):
         image = Image.open(img_name)
         if self.transform:
             image = self.transform(image)
-        return image, 0  # Returning 0 as a dummy label since GAN doesn't use labels
+        return image, 0 
 
 
 transform = transforms.Compose([
@@ -42,7 +42,7 @@ transform = transforms.Compose([
     transforms.Normalize((0.5,), (0.5,))
 ])
 
-dataset = ImageDataset(root_dir=r"C:\Users\la\Desktop\Port Tender", transform=transform)
+dataset = ImageDataset(root_dir="Name", transform=transform)
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
 def weights_init(m):
