@@ -49,7 +49,7 @@
 2. 将代码第45行`dataset = ImageDataset(root_dir="FOLDER_NAME", transform=transform)`中的`FOLDER_NAME`换成工作目录中需要训练的数据集，数据集中不能有子类。
 3. 根据需要调整`num_epochs`。
 4. 直接运行此代码，此代码兼容cpu和cuda环境。
-5. 使用TensorBoard查看训练过程中的损失和生成的图像。
+5. 使用TensorBoard查看训练过程中的损失和生成的图像，tensorboard文件保存在当前工作目录下的'runs/GAN_view'。
 6. 训练结束后将自动保存模型'GAN_generator.pth'在当前工作目录。
 7. 使用保存的'GAN_generator.pth'随时加载训练好的生成器模型。
 
