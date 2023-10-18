@@ -42,7 +42,7 @@ transform = transforms.Compose([
     transforms.Normalize((0.5,), (0.5,))
 ])
 
-dataset = ImageDataset(root_dir="Name", transform=transform)
+dataset = ImageDataset(root_dir="FOLDER_NAME", transform=transform)
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
 def weights_init(m):
