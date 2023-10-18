@@ -1,7 +1,7 @@
 # DATAA_GAN实验说明 (Data Augmentation Generative Adversarial Network)
 
 ## 概述
-为解决舰船HOG数据集的某些子类图像数量过小,这段代码实现了一个基于GAN的图像生成模型以实现舰船数据集的数据增成（Data Augmentation)。它使用了一个生成器(Generator)和一个鉴别器(Discriminator)。生成器的目标是生成尽可能真实的图像，而鉴别器的目标是区分出真实图像和生成的图像。
+为解决舰船HOG数据集的某些子类图像数量过小的问题,这段代码实现了一个基于GAN的图像生成模型以实现舰船数据集的数据增成（Data Augmentation)。它使用了一个生成器(Generator)和一个鉴别器(Discriminator)。生成器的目标是生成尽可能真实的图像，而鉴别器的目标是区分出真实图像和生成的图像。
 
 ## 超参数设置
 1. `image_size` - 用于Resize操作时调整图像的大小，为64。
@@ -46,14 +46,14 @@
 
 ## 使用方法
 1. 首先确保已经安装了所有必要的库和依赖。
-2. 将代码中的"Name"换成工作目录中需要训练的数据集，数据集中不能有子类。
+2. 将代码第45行dataset = ImageDataset(root_dir="FOLDER_NAME", transform=transform)中的"FOLDER_NAME"换成工作目录中需要训练的数据集，数据集中不能有子类。
 3. 根据需要调整`num_epochs`。
 4. 直接运行此代码，此代码兼容cpu和cuda环境。
 5. 使用TensorBoard查看训练过程中的损失和生成的图像。
 6. 训练结束后将自动保存模型'GAN_generator.pth'在当前工作目录。
 7. 使用保存的'GAN_generator.pth'随时加载训练好的生成器模型。
 
-##调用'GAN_generator.pth'批量生成图像
+## 调用'GAN_generator.pth'批量生成图像
 1. 根据需要修改图像数量`num_images`。
 2. 确认'GAN_generator.pth'在工作目录后，直接运行'Generate_data.py'。
-3. 图像将保存在"Generated_data"文件夹中。
+3. 图像将保存在工作目录"Generated_data"文件夹中。
