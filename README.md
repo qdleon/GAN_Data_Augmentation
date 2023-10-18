@@ -8,7 +8,7 @@
 2. `batch_size` - 批次大小为128。
 3. `lr` - 学习率设为0.0002。
 4. `beta1` - Adam优化器的参数,为0.5。
-5. `num_epochs` - 训练周期数为1500。
+5. `num_epochs` - 训练周期数为1000。
 6. `latent_dim` - 初始随机噪声的维度为100。
 7. `channels` - 图像的通道数设为1。
 8. `label_real` 和 `label_fake` - 分别表示真实和伪造标签的标签平滑值，代码中分别设置为0.9和0.1。
@@ -46,8 +46,14 @@
 
 ## 使用方法
 1. 首先确保已经安装了所有必要的库和依赖。
-2. 将代码中的"YOUR_PATH"换成你需要训练的数据集，数据集中不能有子类。
-3. 根据需要调整`image_size`和`num_epochs`。
+2. 将代码中的"Name"换成工作目录中需要训练的数据集，数据集中不能有子类。
+3. 根据需要调整`num_epochs`。
 4. 直接运行此代码，此代码兼容cpu和cuda环境。
-5. 使用TensorBoard查看训练过程中的损失和生成的图像。（执行命令行：tensorboard --logdir=C:\Users\la\runs\GAN_view，随后进入网址http://localhost:6006/）
-6. 使用保存的'GAN_generator.pth'随时加载训练好的生成器模型。
+5. 使用TensorBoard查看训练过程中的损失和生成的图像。
+6. 训练结束后将自动保存模型'GAN_generator.pth'在当前工作目录。
+7. 使用保存的'GAN_generator.pth'随时加载训练好的生成器模型。
+
+##调用'GAN_generator.pth'批量生成图像
+1. 根据需要修改图像数量`num_images`。
+2. 确认'GAN_generator.pth'在工作目录后，直接运行'Generate_data.py'。
+3. 图像将保存在"Generated_data"文件夹中。
